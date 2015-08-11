@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    	<meta charset="UTF-8">
+    	<script src= 'http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+        <title>Contact Card</title>
+        <style>
+        	label {
+        		display: block;
+        	}
+        	#input {
+        		display: inline-block;
+        	}
+        	#output {
+        		display: inline-block;
+        	}
+        	#output div {
+        		border: 1px dashed #000;
+        	}
+        </style>
+        <script type="text/javascript">
+        	$( document ).ready(function() {
+        		$( "button" ).click(function() {
+	        		$( "#output" ).append( 
+	        			"<div>" + 
+		        			$( "#first_name" ).val() + " " + 
+		        			$( "#last_name" ).val() + 
+		        			"<p>Click for description!</p>" + 
+	        			"</div>");
+	        		//clear form
+	        		// $( "input, textarea" ).val(" ");
+	        		return false
+        		});
+        	});
+
+        	$( document ).on("click", "p", function() {
+        		$( "#output div" ).children().html( $( "#descript" ).val());
+        	});
+        </script>
+    </head>
+    <body>
+        <div id="container">
+        	<div id="input">
+        		<form>
+        			<label>
+        				First Name: <input id="first_name" type="text" name="first_name"/>
+        			</label>
+        			<label>
+        				Last Name: <input id="last_name" type="text" name="last_name"/>
+        			</label>
+        			<label>
+        				Description: <textarea id="descript" name="description"></textarea>
+        			</label>
+        			<button>Add User</button>
+        		</form>
+        	</div>
+        	<div id="output">
+
+        	</div>
+        </div>
+    </body>
+</html>        
